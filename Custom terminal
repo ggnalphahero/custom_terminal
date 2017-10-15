@@ -1,0 +1,63 @@
+# custom_terminal
+Create your own terminal
+
+#### To change terminal font and screen :user needs to look for bashrc file.
+
+* To access bashrc file
+
+go to files--> home and display hidden files and open with any notepad
+
+or
+
+* in terminal
+
+  - type
+  - cd /yourusername/
+  - ls -la
+  - nano .bashrc
+
+- and then look for
+##### $color_prompt
+
+* and paste this line instead of your debian_chroot--->
+
+```
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;35m\]\@\[\033[01;35m\]  \date \[\033[01;31m\]\u\[\033[01;33m\]@\[\033[01;36m\]\h\[\033[00m\]$\[\033[01;37m\]\w\[\033[00m\]\$ '
+```
+###### * where
+  - \[\033[01;35m\]\@\  = time
+  - [\033[01;35m\]  \date \ = Date
+  - [\033[01;31m\]\u\ = username
+  - [\033[01;33m\]@\ = @ symbol
+  - [\033[01;36m\]\h\ = hostname
+  - [\033[00m\]$\ = $ symbol
+  - [\033[01;37m\]\w\ = dir
+  - [\033[00m\]\$ = $ symbol
+
+or
+
+* user can comment their code with #
+
+
+
+if
+[ "$color_prompt" = yes ]; then
+
+    '#' PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+
+ else
+
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+
+fi
+
+
+##### * where \u@\h :
+
+  - [\033[01;31m\]\u@\h\ = username, '@' symbol , hostname
+
+
+
+###### * to activate bashrc
+
+type .[space] .bashrc in  terminal
